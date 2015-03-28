@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
 
   if(argc<5) {
     fprintf(stderr,"Usage: <string> <start> <end> <repeat>\n\n\
-Print string[start:end]*repeat");
+Print string[start:end]*repeat\n");
     exit(0);
   }
   s = atoi(argv[2]);
