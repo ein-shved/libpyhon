@@ -16,13 +16,15 @@ cdef class WordExp:
 
     def __init__(self, char *s, int flags=0):
         '''__init__(s, flags)\n\nPerform wordexp(s, self.data, flags)'''
-        self.expand(s, flags&~WRDE_REUSE)
+        if woexp.wordexp(s, &self.data, flags):
+            raise MemoryError("Cannot perform expansion")
 
     def __dealloc__(self):
         woexp.wordfree(&self.data)
 
     def expand(self, char *s, int flags=WRDE_REUSE):
         '''expand(s, flags=WRDE_REUSE)\n\nPerform wordexp(s, self.data, flags)'''
+        woexp.wordfree(&self.data)
         if woexp.wordexp(s, &self.data, flags):
             raise MemoryError("Cannot perform expansion")
 

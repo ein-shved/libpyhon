@@ -1,7 +1,7 @@
 CFLAGS+=-I/usr/include/python2.7 -g -O0 -Wall -Werror
 LDLIBS+=-lpython2.7
 
-GENERATED=str *.so woex woexp.c
+GENERATED=str *.so woex woexp.c list
 
 all:	str repeat.so woex woexp.so list
 
