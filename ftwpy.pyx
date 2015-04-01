@@ -2,6 +2,12 @@ cimport ftwpy
 
 __doc__ = 'Primitive ftwpy.h wrapper'
 
+cpdef enum:
+    FTW_F = 0,
+    FTW_D = 1,
+    FTW_DNR = 2,
+    FTW_NS = 3,
+
 cdef class Stat:
     cdef public ftwpy.dev_t st_dev
     cdef public ftwpy.ino_t st_ino
