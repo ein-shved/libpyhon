@@ -19,6 +19,7 @@ demo:	all
 	python testrepeat.py
 	./woex
 	python testwoexp.py
+	python testftw.py
 
 test:	all
 	valgrind ./str qwert 1 3 4
@@ -27,3 +28,5 @@ test:	all
 	python -c 'import repeat; print dir(repeat); help(repeat)' | cat
 	valgrind python testwoexp.py
 	python -c 'import woexp; print dir(woexp); help(woexp)' | cat
+	valgrind python testftw.py
+	python -c 'import ftwpy; print dir(ftwpy); help(ftwpy)' | cat
